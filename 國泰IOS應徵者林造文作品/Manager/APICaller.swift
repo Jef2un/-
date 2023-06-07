@@ -56,7 +56,7 @@ class APICaller {
         task.resume()
     }
     func getFriends2(completion: @escaping (Result<[Response], Error>) -> Void) {
-        guard let url = URL(string: Constants.Friends2Url) else {return}
+        guard let url = URL(string: Constants.FriendsWithInviteUrl) else {return}
         let task = URLSession.shared.dataTask(with: URLRequest(url: url)) { data, _, error in
             guard let data = data, error == nil else {
                 return
@@ -72,6 +72,8 @@ class APICaller {
         
         task.resume()
     }
+    
+
     
 
 }

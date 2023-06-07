@@ -1,9 +1,6 @@
 //
 //  FriendsTableView.swift
-//  國泰IOS應徵者林造文作品
-//
-//  Created by Jef2un_628 on 2023/6/6.
-//
+
 
 import UIKit
 
@@ -34,6 +31,7 @@ class FriendsTableView: UIView, UISearchBarDelegate {
         var tv = UITableView()
         tv.translatesAutoresizingMaskIntoConstraints = false
         tv.register(FriendsTableViewCell.self, forCellReuseIdentifier: FriendsTableViewCell.identify)
+        tv.register(InvitedTableViewCell.self, forCellReuseIdentifier: InvitedTableViewCell.identify)
         return tv
     }()
     
@@ -91,7 +89,7 @@ class FriendsTableView: UIView, UISearchBarDelegate {
 
         group.notify(queue: .main) {
             self.currentFriendsData = self.cleanData()
-            self.currentFriendsData.sort { $0.status ?? 0 > $1.status ?? 0 }
+            self.currentFriendsData.sort { $0.status ?? 0 < $1.status ?? 0 }
             self.tableView.reloadData()
             sender.endRefreshing()
         }
@@ -127,10 +125,12 @@ class FriendsTableView: UIView, UISearchBarDelegate {
             }
             group.leave()
         }
+        
+        
 
         group.notify(queue: .main) {
             self.currentFriendsData = self.cleanData()
-            self.currentFriendsData.sort { $0.status ?? 0 > $1.status ?? 0 }
+            self.currentFriendsData.sort { $0.status ?? 0 < $1.status ?? 0 }
             self.tableView.reloadData()
         }
     }
@@ -163,11 +163,9 @@ class FriendsTableView: UIView, UISearchBarDelegate {
         if searchText.isEmpty {
             currentFriendsData = cleanData()
         } else {
-            // Update currentFriendsData with filtered result
             currentFriendsData = currentFriendsData.filter { $0.name.contains(searchText) }
         }
 
-            // Then, reload data in table view
             tableView.reloadData()
     }
     
@@ -200,24 +198,34 @@ extension FriendsTableView: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: FriendsTableViewCell.identify, for: indexPath) as? FriendsTableViewCell else {
-            return UITableViewCell()
-        }
-        let friend = currentFriendsData[indexPath.row]
-        cell.nameLabel.text = friend.name
-        if friend.isTop == "1" {
-            cell.star.isHidden = false
-        }else {
-            cell.star.isHidden = true
-        }
-        if friend.status == 1 {
-            cell.invitedBtn.isHidden = true
-            cell.moreBtn.isHidden = false
+        if currentFriendsData[indexPath.row].status == 0 {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: InvitedTableViewCell.identify, for: indexPath) as? InvitedTableViewCell else {
+                return UITableViewCell()
+            }
+            let friend = currentFriendsData[indexPath.row]
+            cell.nameLabel.text = friend.name
+            return cell
         }else{
-            cell.invitedBtn.isHidden = false
-            cell.moreBtn.isHidden = true
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: FriendsTableViewCell.identify, for: indexPath) as? FriendsTableViewCell else {
+                return UITableViewCell()
+            }
+            let friend = currentFriendsData[indexPath.row]
+            cell.nameLabel.text = friend.name
+            if friend.isTop == "1" {
+                cell.star.isHidden = false
+            }else {
+                cell.star.isHidden = true
+            }
+            if friend.status == 1 {
+                cell.invitedBtn.isHidden = true
+                cell.moreBtn.isHidden = false
+            }else{
+                cell.invitedBtn.isHidden = false
+                cell.moreBtn.isHidden = true
+            }
+            return cell
         }
-        return cell
+
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

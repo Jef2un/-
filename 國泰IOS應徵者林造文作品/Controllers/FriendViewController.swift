@@ -1,9 +1,4 @@
-//
-//  FriendViewController.swift
-//  國泰IOS應徵者林造文作品
-//
-//  Created by Jef2un_628 on 2023/6/5.
-//
+
 
 import UIKit
 
@@ -81,12 +76,12 @@ class FriendViewController: UIViewController {
         
         navigationItem.leftBarButtonItems = [
             UIBarButtonItem(image: UIImage(named: "icNavPinkWithdraw")?.withRenderingMode(.alwaysOriginal), style: .done, target: self, action: nil),
-            UIBarButtonItem(image: UIImage(named: "icNavPinkTransfer")?.withRenderingMode(.alwaysOriginal), style: .done, target: self, action: nil),
-            UIBarButtonItem(title: "情境一", style: .done, target: self, action: nil),
-            UIBarButtonItem(title: "情境二", style: .done, target: self, action: nil),
-            UIBarButtonItem(title: "情境三", style: .done, target: self, action: nil),
+            UIBarButtonItem(image: UIImage(named: "icNavPinkTransfer")?.withRenderingMode(.alwaysOriginal), style: .done, target: self, action: nil)
         ]
     }
+    
+
+
 }
 
 extension FriendViewController: UICollectionViewDataSource, UICollectionViewDelegate{

@@ -1,16 +1,10 @@
-//
-//  SwitchCollectionViewCell.swift
-//  國泰IOS應徵者林造文作品
-//
-//  Created by Jef2un_628 on 2023/6/5.
-//
 
 import UIKit
 
 class SwitchCollectionViewCell: UICollectionViewCell {
     static let identify = "SwitchCollectionViewCell"
 
-    public var presentView = FriendsTableView()
+    public var presentView:UIView = FriendsTableView()
   
     
     override init(frame: CGRect) {

@@ -24,6 +24,7 @@
 		68DBA7482A2EF31C00ED1CA9 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68DBA7472A2EF31C00ED1CA9 /* UserViewModel.swift */; };
 		68DBA74D2A2F17DF00ED1CA9 /* FriendsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68DBA74C2A2F17DF00ED1CA9 /* FriendsTableView.swift */; };
 		68DBA74F2A2F199600ED1CA9 /* FriendsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68DBA74E2A2F199600ED1CA9 /* FriendsTableViewCell.swift */; };
+		68DBA7732A305BB100ED1CA9 /* InvitedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68DBA7722A305BB100ED1CA9 /* InvitedTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		68DBA7472A2EF31C00ED1CA9 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 		68DBA74C2A2F17DF00ED1CA9 /* FriendsTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsTableView.swift; sourceTree = "<group>"; };
 		68DBA74E2A2F199600ED1CA9 /* FriendsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsTableViewCell.swift; sourceTree = "<group>"; };
+		68DBA7722A305BB100ED1CA9 /* InvitedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvitedTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +70,7 @@
 				68DBA7412A2E239800ED1CA9 /* EmptyView.swift */,
 				68DBA74C2A2F17DF00ED1CA9 /* FriendsTableView.swift */,
 				68DBA74E2A2F199600ED1CA9 /* FriendsTableViewCell.swift */,
+				68DBA7722A305BB100ED1CA9 /* InvitedTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -229,6 +232,7 @@
 				68DBA7452A2EF26F00ED1CA9 /* APICaller.swift in Sources */,
 				685A2CF32A2E021C009D2E71 /* MenuBar.swift in Sources */,
 				68DBA7482A2EF31C00ED1CA9 /* UserViewModel.swift in Sources */,
+				68DBA7732A305BB100ED1CA9 /* InvitedTableViewCell.swift in Sources */,
 				68735D562A2DDC2A0058C97F /* KOViewController.swift in Sources */,
 				68735D5B2A2DDCF70058C97F /* SettingViewController.swift in Sources */,
 				68735D422A2DDB8A0058C97F /* SceneDelegate.swift in Sources */,

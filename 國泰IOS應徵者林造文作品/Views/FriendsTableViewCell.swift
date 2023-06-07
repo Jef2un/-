@@ -1,16 +1,9 @@
-//
-//  FriendsTableViewCell.swift
-//  國泰IOS應徵者林造文作品
-//
-//  Created by Jef2un_628 on 2023/6/6.
-//
 
 import UIKit
 
 class FriendsTableViewCell: UITableViewCell {
     static let identify = "FriendsTableViewCell"
     
-//    let image1 = UIImage(named: "icFriendsMore")
 
     public var star: UIImageView = {
         var image = UIImageView()
