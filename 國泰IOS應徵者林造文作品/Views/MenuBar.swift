@@ -63,7 +63,8 @@ class MenuBar: UIView {
         friendBtn.addTarget(self, action: #selector(friendBtnTapped), for: .primaryActionTriggered)
         chatBtn.addTarget(self, action: #selector(chatBtnTapped), for: .primaryActionTriggered)
         buttons = [friendBtn,chatBtn]
-        
+        addBadgeToButton(button: chatBtn, value: 99)
+
         addWidget()
         
         layout()
@@ -127,6 +128,24 @@ class MenuBar: UIView {
             }
         
         }
+    }
+    
+    func addBadgeToButton(button: UIButton, value: Int) {
+        // 1. Create the badge label
+        let badgeLabel = UILabel()
+        badgeLabel.text = String(value)
+        badgeLabel.textColor = .white
+        badgeLabel.backgroundColor = .red
+        badgeLabel.textAlignment = .center
+        badgeLabel.font = UIFont.systemFont(ofSize: 12)
+        badgeLabel.layer.cornerRadius = 10  // Half the height
+        badgeLabel.clipsToBounds = true  // Enable cornerRadius
+      
+        // 2. Set the frame (or use autolayout)
+        badgeLabel.frame = CGRect(x: 30, y: -10, width: 20, height: 20)
+      
+        // 3. Add the badge to the button
+        button.addSubview(badgeLabel)
     }
 
 }

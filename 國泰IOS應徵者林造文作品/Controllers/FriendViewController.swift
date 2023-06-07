@@ -81,7 +81,10 @@ class FriendViewController: UIViewController {
         
         navigationItem.leftBarButtonItems = [
             UIBarButtonItem(image: UIImage(named: "icNavPinkWithdraw")?.withRenderingMode(.alwaysOriginal), style: .done, target: self, action: nil),
-            UIBarButtonItem(image: UIImage(named: "icNavPinkTransfer")?.withRenderingMode(.alwaysOriginal), style: .done, target: self, action: nil)
+            UIBarButtonItem(image: UIImage(named: "icNavPinkTransfer")?.withRenderingMode(.alwaysOriginal), style: .done, target: self, action: nil),
+            UIBarButtonItem(title: "情境一", style: .done, target: self, action: nil),
+            UIBarButtonItem(title: "情境二", style: .done, target: self, action: nil),
+            UIBarButtonItem(title: "情境三", style: .done, target: self, action: nil),
         ]
     }
 }

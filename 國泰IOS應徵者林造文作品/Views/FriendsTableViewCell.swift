@@ -52,14 +52,14 @@ class FriendsTableViewCell: UITableViewCell {
         return btn
     }()
     
-//    public let moreBtn: UIButton = {
-//        var btn = UIButton()
-//        btn.setImage(UIImage(systemName: <#T##String#>), for: <#T##UIControl.State#>)
-//        return btn
-//    }()
+    public let moreBtn: UIButton = {
+        var btn = UIButton()
+        btn.setImage(UIImage(named: "icFriendsMore"), for: .normal)
+        return btn
+    }()
     
     lazy var stackView: UIStackView = {
-        var sv = UIStackView(arrangedSubviews: [transferBtn,invitedBtn])
+        var sv = UIStackView(arrangedSubviews: [transferBtn,invitedBtn,moreBtn])
         sv.axis = .horizontal
         sv.spacing = 10
         sv.translatesAutoresizingMaskIntoConstraints = false

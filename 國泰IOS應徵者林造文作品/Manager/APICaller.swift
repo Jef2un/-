@@ -19,7 +19,6 @@ struct Constants {
 class APICaller {
     static let shared = APICaller()
     
-    var friendsNum: Int = 0
     
     func getUser(completion: @escaping (Result<[Response], Error>) -> Void) {
         guard let url = URL(string: Constants.UserUrl) else {return}
@@ -39,7 +38,7 @@ class APICaller {
         task.resume()
     }
     
-    func getFriends(completion: @escaping (Result<[Response], Error>) -> Void) {
+    func getFriends1(completion: @escaping (Result<[Response], Error>) -> Void) {
         guard let url = URL(string: Constants.Friends1Url) else {return}
         let task = URLSession.shared.dataTask(with: URLRequest(url: url)) { data, _, error in
             guard let data = data, error == nil else {
@@ -48,7 +47,23 @@ class APICaller {
             
             do {
                 let results = try JSONDecoder().decode(GetResponse.self, from: data)
-                self.friendsNum = results.response.count
+                completion(.success(results.response))
+            } catch {
+                completion(.failure(error))
+            }
+        }
+        
+        task.resume()
+    }
+    func getFriends2(completion: @escaping (Result<[Response], Error>) -> Void) {
+        guard let url = URL(string: Constants.Friends2Url) else {return}
+        let task = URLSession.shared.dataTask(with: URLRequest(url: url)) { data, _, error in
+            guard let data = data, error == nil else {
+                return
+            }
+            
+            do {
+                let results = try JSONDecoder().decode(GetResponse.self, from: data)
                 completion(.success(results.response))
             } catch {
                 completion(.failure(error))
@@ -58,14 +73,5 @@ class APICaller {
         task.resume()
     }
     
-//    func getFriendCount(completion: @escaping (Result<Int, Error>) -> Void) {
-//        getFriends { result in
-//            switch result {
-//            case .success(let friends):
-//                completion(.success(friends.count))
-//            case .failure(let error):
-//                completion(.failure(error))
-//            }
-//        }
-//    }
+
 }
